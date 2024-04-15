@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-between">
+        <h1>Add Entry</h1>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back</a>
+    </div>
+    <form action="{{ url_for('add') }}" method="POST">
+        {{ form.csrf_token }}
+        
+        <div class="form-group">
+            <label for="title">Title:</label>
+            {{ form.title(class="form-control", id="title") }}
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Description:</label>
+            {{ form.subject(class="form-control", id="subject") }}
+        </div>
+
+        <div class="form-group">
+            <label for="person_name">Person Name:</label>
+            {{ form.person_name(class="form-control", id="person_name") }}
+        </div>
+
+        <div class="form-group">
+            <label for="phone_number">Person Phone Number:</label>
+            {{ form.phone_number(class="form-control", id="phone_number") }}
+        </div>
+
+        <div class="form-group">
+            <label for="age">Person Age:</label>
+            {{ form.age(class="form-control", id="age") }}
+        </div>
+
+        <div class="form-group">
+            <label for="email">Person Email:</label>
+            {{ form.email(class="form-control", id="email") }}
+        </div>
+
+        <div class="form-group">
+            <label for="details">Details:</label>
+            <textarea name="details" class="form-control" id="details" rows="4">{{ form.details.data }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="additional_links">Additional Links or Social Media Profiles:</label>
+            {{ form.additional_links(class="form-control", id="additional_links") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
